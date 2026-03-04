@@ -12,5 +12,5 @@ DATABASE_URL=sqlite:///C:/Users/.../File.db
 
 ## README проекта
 
-- [Frontend README](../front/README.md)
-- [Backend README](../back/README.md)
+- [Frontend README](/front/README.md)
+- [Backend README](/back/README.md)
