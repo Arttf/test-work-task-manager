@@ -1,0 +1,42 @@
+﻿<mat-toolbar color="primary">Система управления задачами</mat-toolbar>
+
+<section class="page">
+  <mat-card class="card">
+    <app-task-filters
+      [initial]="store.filters()"
+      (searchChange)="onSearchChange($event)"
+      (filtersChange)="onFiltersChange($event)"
+    />
+  </mat-card>
+
+  <div class="grid">
+    <mat-card class="card relative">
+      <app-loading-overlay [active]="store.loading()" />
+      <app-task-table
+        [tasks]="store.tasks()"
+        [sortBy]="store.filters().sortBy"
+        [sortOrder]="store.filters().sortOrder"
+        (sortChange)="onSortChange($event)"
+        (edit)="store.selectTask($event)"
+        (remove)="store.deleteTask($event)"
+      />
+
+      @if (!store.loading() && store.total() === 0) {
+        <p class="empty">Задач пока нет</p>
+      }
+    </mat-card>
+
+    <mat-card class="card">
+      <app-task-form
+        [editing]="store.selectedTask()"
+        (createTask)="onCreate($event)"
+        (updateTask)="onUpdate($event)"
+        (cancelEdit)="onEditCancel()"
+      />
+
+      @if (store.error()) {
+        <p class="error">{{ store.error() }}</p>
+      }
+    </mat-card>
+  </div>
+</section>

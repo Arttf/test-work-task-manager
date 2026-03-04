@@ -1,0 +1,41 @@
+﻿.page {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+  background:
+    radial-gradient(circle at top right, #dbeafe 0, transparent 40%),
+    radial-gradient(circle at left bottom, #dcfce7 0, transparent 45%),
+    #f8fafc;
+  min-height: calc(100vh - 64px);
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1.8fr 1fr;
+}
+
+.card {
+  padding: 16px;
+}
+
+.relative {
+  position: relative;
+}
+
+.empty {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px;
+}
+
+.error {
+  color: #b91c1c;
+  margin-top: 12px;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

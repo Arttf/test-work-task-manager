@@ -1,0 +1,18 @@
+﻿.sort-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 8px;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+.sort-indicator mat-icon {
+  width: 14px;
+  height: 10px;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.sort-indicator.active mat-icon.current {
+  color: #111827;
+}

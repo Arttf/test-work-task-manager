@@ -1,0 +1,43 @@
+﻿.table {
+  width: 100%;
+}
+
+th.mat-mdc-header-cell {
+  white-space: nowrap;
+}
+
+.sort-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: #111827;
+}
+
+.header-label {
+  color: #111827;
+  font-weight: 600;
+}
+
+.sort-trigger app-task-sort-indicator {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sort-trigger:hover app-task-sort-indicator,
+.sort-trigger.active app-task-sort-indicator {
+  opacity: 1;
+}
+
+.sub {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.actions {
+  white-space: nowrap;
+}

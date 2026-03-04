@@ -1,0 +1,36 @@
+﻿<form class="filters" [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Поиск</mat-label>
+    <input matInput placeholder="Название задачи" formControlName="search" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Статус</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="">Все</mat-option>
+      <mat-option value="todo">К выполнению</mat-option>
+      <mat-option value="in_progress">В работе</mat-option>
+      <mat-option value="done">Готово</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Приоритет</mat-label>
+    <mat-select formControlName="priority">
+      <mat-option value="">Все</mat-option>
+      <mat-option value="low">Низкий</mat-option>
+      <mat-option value="medium">Средний</mat-option>
+      <mat-option value="high">Высокий</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Дедлайн</mat-label>
+    <input matInput type="date" formControlName="dueDate" />
+  </mat-form-field>
+
+  <button class="reset-button" mat-stroked-button type="button" (click)="reset()">
+    <mat-icon>restart_alt</mat-icon>
+    <span>Сбросить</span>
+  </button>
+</form>

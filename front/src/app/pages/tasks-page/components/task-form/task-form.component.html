@@ -1,0 +1,46 @@
+﻿<form class="task-form" [formGroup]="form" (ngSubmit)="submit()">
+  <h3>{{ editing() ? 'Редактировать задачу' : 'Новая задача' }}</h3>
+
+  <mat-form-field>
+    <mat-label>Название</mat-label>
+    <input matInput formControlName="title" />
+    @if (form.controls.title.touched && form.controls.title.invalid) {
+      <mat-error>Минимум 2 символа</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Описание</mat-label>
+    <textarea matInput rows="3" formControlName="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Статус</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="todo">К выполнению</mat-option>
+      <mat-option value="in_progress">В работе</mat-option>
+      <mat-option value="done">Готово</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Приоритет</mat-label>
+    <mat-select formControlName="priority">
+      <mat-option value="low">Низкий</mat-option>
+      <mat-option value="medium">Средний</mat-option>
+      <mat-option value="high">Высокий</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Дедлайн</mat-label>
+    <input matInput type="date" formControlName="due_date" />
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-flat-button color="primary" type="submit">{{ editing() ? 'Сохранить' : 'Создать' }}</button>
+    @if (editing()) {
+      <button mat-stroked-button type="button" (click)="cancelEdit.emit()">Отмена</button>
+    }
+  </div>
+</form>
